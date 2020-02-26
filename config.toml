@@ -1,5 +1,5 @@
 theme = "soho"
-baseurl = "https://example.com/"
+baseurl = "https://zhjning.netlify.com/"
 languageCode = "en"
 title = "Soho Theme"
 DefaultContentLanguage = "en"
