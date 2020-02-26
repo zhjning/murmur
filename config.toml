@@ -1,17 +1,17 @@
 theme = "soho"
 baseurl = "https://zhjning.netlify.com/"
 languageCode = "en"
-title = "Soho Theme"
+title = "Fluffy Flurry"
 DefaultContentLanguage = "en"
 enableInlineShortcodes = true
 summarylength = 10
 enableEmoji = true
 
 [params]
-description = ""
-# gravatar = "soho@example.com"
+description = "Random walk & \n Random talk"
+gravatar = "zhjning@hotmail.com"
 profilePicture = "images/profile.png"
-copyright = "Author Name"
+copyright = "Jiannine Zhang"
 license = "CC BY-SA 4.0"
 licenseURL = "https://creativecommons.org/licenses/by-sa/4.0"
 
