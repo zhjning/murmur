@@ -71,12 +71,12 @@ html {
 
 /* Sidebar links */
 .sidebar a {
-  color: #fff;
+  color: #f5f6ca;
 }
 
 /* About section */
 .sidebar-about h1 {
-  color: #fff;
+  color: #f5f6ca;
   margin-top: 0;
   font-size: 2.25rem;
   font-weight: 400;
@@ -149,7 +149,7 @@ footer {
 }
 
 .img-headshot {
-  border: 6px solid #fff;
+  border: 6px solid #f5f6ca;
   height: 180px;
   width: 180px;
 }
@@ -160,20 +160,23 @@ footer {
   margin-right: auto;
 }
 
+/* change background-color from #49757a to #a6a5c4 */
+/* change color from #fff to #f5f6ca */
+
 .sidebar {
-  background-color: #49757a;
-  color: #fff;
+  background-color: #a6a5c4;
+  color: #f5f6ca;
 }
 
 .sidebar a,
 .sidebar-about h1 {
-  color: #fff;
+  color: #f5f6ca;
 }
 
 footer a,
 .content a,
 .related-posts li a:hover {
-  color: #49757a;
+  color: #a6a5c4;
 }
 
 .read-more-link {
@@ -183,7 +186,7 @@ footer a,
 .read-more-link a {
   padding: 8px 16px;
   border: 1px solid;
-  border-color: #49757a;
+  border-color: #a6a5c4;
   border-radius: 4px;
 }
 
