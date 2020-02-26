@@ -58,9 +58,11 @@ html {
   }
 }
 
+/* change color from #515151 to #55295b */
+/* change background-color from #fff to #a6a5c4 */
 body {
-  color: #515151;
-  background-color: #fff;
+  color: #55295b;
+  background-color: #a6a5c4;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
           text-size-adjust: 100%;
