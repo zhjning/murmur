@@ -1,17 +1,17 @@
 ---
-title: Deploying by RStudio blogdown + github + netlify
+title: Pesernal website deployment with R blogdown
 author: Jiannie Zhang
 date: '2020-02-27'
-slug: deploying-by-rstudio-blogdown-github-netlify
+slug: r-blog
 categories:
-  - Web
+  - R
 tags:
-  - system
   - setting
+  - system
 Categories:
   - Development
   - GoLang
-Description: 'Deploying blog by R'
+Description: 'Blog deployment with R'
 Tags:
   - Development
   - golang
@@ -43,7 +43,7 @@ setwd(workDir)
 ### Steps for setting the theme of blogdown
 Blogdown could be download in github, the simplest way to chose a blog theme is by installing hugo. Hugo has lots of online theme templates. The theme I applied here is soho. 
 
-```{r requirement, eval=F}
+```{r requirement, eval=FALSE}
 packageList = installed.packages()
 if (! "blogdown" %in% packageList){
   devtools::install_github("RStudio/blogdown")
