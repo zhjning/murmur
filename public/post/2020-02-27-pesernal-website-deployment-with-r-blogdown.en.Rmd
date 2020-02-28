@@ -1,0 +1,65 @@
+---
+title: Pesernal website deployment with R blogdown
+author: Jiannie Zhang
+date: '2020-02-27'
+slug: r-blog
+categories:
+  - R
+tags:
+  - setting
+  - system
+Categories:
+  - Development
+  - GoLang
+Description: 'Blog deployment with R'
+Tags:
+  - Development
+  - golang
+---
+
+
+
+### Why using R for blog deployment.
+
+The R blog is built up by RStudio blogdown package, github and netlify online application service. The advantage of this combination is the deploying process is queit light and fast. The disadvantage is the website is static, and may not display well and could meet the requirement of dynamic effects.
+Before 2017, I applied RedHat cloud service and ghost to setup a personal blog website. Unlucky, RedHat closed their free cloud service in 2017. So it's time to try new strategies!
+
+The setting process is mainly follow this (protocol)[], this blog adds some tips that are not mentioned in that blog.
+
+
+### The application of git repository in RStudio
+
+First we need to create a local git repository folder for the website. In RStudio, we could did it by menu *File* >> *New Project* >> *Git Repository*
+
+```{r prerequirement, eval=FALSE}
+workDir = "~/Documents/WorkSpace/platform/murmur"
+if (!dir.exists(workDir)){
+  dir.create(workDir)
+}
+setwd(workDir)
+```
+
+
+### Steps for setting the theme of blogdown
+Blogdown could be download in github, the simplest way to chose a blog theme is by installing hugo. Hugo has lots of online theme templates. The theme I applied here is soho. 
+
+```{r requirement, eval=FALSE}
+packageList = installed.packages()
+if (! "blogdown" %in% packageList){
+  devtools::install_github("RStudio/blogdown")
+  blogdown::install_hugo()
+}
+blogdown::install_theme("alexandrevicenzi/soho")
+```
+
+
+### Netlify setup tips
+
+You could use your email or github account to register the netlify. After registered in netlify, you could create a netlify app and link it to your github project(here is the R project updated to the github), don't forget to modify the url in the config.toml, otherwise the mapping rejection relationship could not be set up correctly!  
+
+
+
+### Custome theme tips
+
+Since the hugo themes are dynamically maintained by the theme makers online. Each time they update the themes, your blog theme system would be updated simultaneously. So if you want to apply custom themes like customed css files, you should add modified files in the : */static/css/*, rather than */public/css/*.*(IMP,IMP,IMP!!!)* Otherwise, even though you changed the css file and the synchronic website view, each time you rerun the website, the theme will turn to the default view.    
+
