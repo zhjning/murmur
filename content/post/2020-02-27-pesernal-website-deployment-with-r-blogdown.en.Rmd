@@ -21,15 +21,15 @@ Tags:
 
 ### Why using R for blog deployment.
 
-The R blog is built up by RStudio blogdown package, github and netlify online application service. The advantage of this combination is the deploying process is queit light and fast. The disadvantage is the website is static, and may not display well and could meet the requirement of dynamic effects.
-Before 2017, I applied RedHat cloud service and ghost to setup a personal blog website. Unlucky, RedHat closed their free cloud service in 2017. So it's time to try new strategies!
+The R blog is built up by RStudio blogdown package, github and netlify online application service. The advantage of this combination is that the deploying process is queit light and fast. The disadvantage of it is that the generated website is static, and may not support well for dynamic effects and live update the posts.
+Before 2017, I applied RedHat cloud service and ghost to setup my personal blog website. Unlucky, RedHat closed their free cloud service in 2017. So it's time to try new strategies!
 
-The setting process is mainly follow this (protocol)[], this blog adds some tips that are not mentioned in that blog.
+The setting process is mainly follow [**official blogdown manual**](https://bookdown.org/yihui/blogdown/) and [**this protocol**](https://cosx.org/2018/01/build-blog-with-blogdown-hugo-netlify-github/), this blog added some tips based on them.
 
 
 ### The application of git repository in RStudio
 
-First we need to create a local git repository folder for the website. In RStudio, we could did it by menu *File* >> *New Project* >> *Git Repository*
+First we need to create a local git repository folder for the website. In RStudio, we could did it by menu **File** >> **New Project** >> **Git Repository**
 
 ```{r prerequirement, eval=FALSE}
 workDir = "~/Documents/WorkSpace/platform/murmur"
@@ -61,5 +61,10 @@ You could use your email or github account to register the netlify. After regist
 
 ### Custome theme tips
 
-Since the hugo themes are dynamically maintained by the theme makers online. Each time they update the themes, your blog theme system would be updated simultaneously. So if you want to apply custom themes like customed css files, you should add modified files in the : */static/css/*, rather than */public/css/*.*(IMP,IMP,IMP!!!)* Otherwise, even though you changed the css file and the synchronic website view, each time you rerun the website, the theme will turn to the default view.    
+Since the hugo themes are dynamically maintained by the theme makers online. Each time they update the themes, your blog theme system would be updated simultaneously. So if you want to apply custom themes like customed css files, you should add modified files in the : **/static/css/**, rather than **/public/css/**.**(IMP,IMP,IMP!!!)** Otherwise, even though you changed the css file and the synchronic website view, each time you rerun the website, the theme will turn to the default view.    
 
+
+
+### About Soho theme
+
+Soho theme is developed by alexandrevicenzi based on Hugo hyde theme. In practise, you need to add **<!DOCTYPE html>** at the header line of all files under **content/post/themes/soho/layouts** folder.

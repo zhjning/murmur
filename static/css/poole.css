@@ -168,7 +168,7 @@ pre {
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
-  background-color: #f9f9f9;
+  background-color: #fdede4;
 }
 pre code {
   padding: 0;
@@ -222,7 +222,7 @@ th {
 }
 tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {
-  background-color: #f9f9f9;
+  background-color: #fdede4;
 }
 
 
@@ -249,7 +249,7 @@ tbody tr:nth-child(odd) th {
   margin-bottom: 1rem;
   padding: 1rem;
   color: #717171;
-  background-color: #f9f9f9;
+  background-color: #a6a5c4;
 }
 
 
