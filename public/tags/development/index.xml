@@ -13,21 +13,19 @@
     
     <item>
       <title>Collection of paintings</title>
-      <link>/murmuring/collection-of-paintings/</link>
+      <link>/post/murmuring/collection-of-paintings/</link>
       <pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/murmuring/collection-of-paintings/</guid>
-      <description> Watercolor {{&amp;lt; instagram_simple BGvuInzyFAe hidecaption &amp;gt;}}
-
- </description>
+      <guid>/post/murmuring/collection-of-paintings/</guid>
+      <description>&lt;p&gt;Embedding cheatsheets.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Pesernal website deployment with R blogdown</title>
-      <link>/post/r-blog/</link>
+      <link>/post/studynotes/r-blog/</link>
       <pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/r-blog/</guid>
+      <guid>/post/studynotes/r-blog/</guid>
       <description>Why using R for blog deployment. The R blog is built up by RStudio blogdown package, github and netlify online application service.</description>
     </item>
     

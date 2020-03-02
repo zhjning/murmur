@@ -16,34 +16,37 @@ Tags:
   - golang
 ---
 
-Try shortcodes!
+Embedding cheatsheets.
 <!--more-->
 ---
+## Available shortcodes:
 
-## Instagram Simple Shortcode
+- Instagram
 
 {{< instagram_simple B9NrtVonGez >}}
 
-<br>
-
----
-
-## YouTube Privacy Enhanced Shortcode
-
-{{< youtube PLYWlpZe1L2k1NZyqGPYpft6MoaRJXokCJ >}}
+  {{< instagram_simple id >}}
 
 <br>
 
----
-
-## Twitter Simple Shortcode
+- Tweet
 
 {{< twitter_simple 1233670259715870720 >}}
 
+  {{< twitter_simple 1233670259715870720 >}}
+  
 <br>
 
 ---
 
-## Vimeo Simple Shortcode
+## External links:
 
-{{< vimeo_simple 48912912 >}}
+- Bilibili
+
+<iframe src="//player.bilibili.com/player.html?aid=86133117&cid=147223508&page=1" width="640" height="385" allowfullscreen> </iframe>
+
+<br>
+
+---
+
+
