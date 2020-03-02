@@ -26,8 +26,7 @@ Embedding cheatsheets.
 {{< instagram_simple B9NrtVonGez >}}
 
 ```
-html
-{{< instagram_simple id >}}
+#{{< instagram_simple id >}}
 ```
 
 <br>
@@ -37,8 +36,7 @@ html
 {{< twitter_simple 1233670259715870720 >}}
 
 ```
-html
-{{< twitter_simple 1233670259715870720 >}}
+#{{< twitter_simple 1233670259715870720 >}}
 ```
 
 <br>
