@@ -16,18 +16,34 @@ Tags:
   - golang
 ---
 
-### Watercolor
-
+Try shortcodes!
+<!--more-->
 ---
 
-{{< instagram_simple BGvuInzyFAe >}}
+## Instagram Simple Shortcode
+
+{{< instagram_simple B9NrtVonGez >}}
 
 <br>
 
-{{< instagram_simple BGvuInzyFAe >}}
+---
+
+## YouTube Privacy Enhanced Shortcode
+
+{{< youtube PLYWlpZe1L2k1NZyqGPYpft6MoaRJXokCJ >}}
 
 <br>
 
 ---
 
+## Twitter Simple Shortcode
 
+{{< twitter_simple 1233670259715870720 >}}
+
+<br>
+
+---
+
+## Vimeo Simple Shortcode
+
+{{< vimeo_simple 48912912 >}}
