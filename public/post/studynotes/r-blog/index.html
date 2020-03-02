@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  <title>Pesernal website deployment with R blogdown &middot; Fluffy Flurry</title>
+
+  <meta name="description" content="Blog deployment with R" />
+
+  
+  <meta property="og:locale" content="en"/>
+
+  
+  <meta property="og:image" content="/images/profile.png">
+
+  
+  <meta property="og:site_name" content="Fluffy Flurry"/>
+  <meta property="og:title" content="Pesernal website deployment with R blogdown"/>
+  <meta property="og:description" content="Blog deployment with R"/>
+  <meta property="og:url" content="/post/studynotes/r-blog/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2020-02-27T00:00:00Z"/>
+  <meta property="article:modified_time" content="2020-02-27T00:00:00Z"/>
+  <meta property="article:author" content="">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "Fluffy Flurry",
+    "url" : "/",
+    "image": "/images/profile.png",
+    "description": "Random walk \x26 \n Random talk"
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "Pesernal website deployment with R blogdown",
+    "headline": "Pesernal website deployment with R blogdown",
+    "datePublished": "2020-02-27T00:00:00Z",
+    "dateModified": "2020-02-27T00:00:00Z",
+    "author": {
+      "@type": "Person",
+      "name": "",
+      "url": "/"
+    },
+    "image": "/images/profile.png",
+    "url": "/post/studynotes/r-blog/",
+    "description": "Blog deployment with R"
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Fluffy Flurry</h1>
+
+      
+      <p class="lead">Random walk &amp; 
+ Random talk</p>
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/posts/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="#" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="#" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+      <a href="#" rel="me" title="Twitter">
+        <i class="fab fa-twitter" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Pesernal website deployment with R blogdown</h1>
+
+  <div class="post-date">
+    <time datetime="2020-02-27T00:00:00Z">Feb 27, 2020</time> · 2 min read
+  </div>
+
+  
+
+
+<div id="why-using-r-for-blog-deployment." class="section level3">
+<h3>Why using R for blog deployment.</h3>
+<p>The R blog is built up by RStudio blogdown package, github and netlify online application service. The advantage of this combination is that the deploying process is queit light and fast. The disadvantage of it is that the generated website is static, and may not support well for dynamic effects and live update the posts. Before 2017, I applied RedHat cloud service and ghost to setup my personal blog website. Unlucky, RedHat closed their free cloud service in 2017. So it’s time to try new strategies!</p>
+<p>The setting process is mainly follow <a href="https://bookdown.org/yihui/blogdown/"><strong>official blogdown manual</strong></a> and <a href="https://cosx.org/2018/01/build-blog-with-blogdown-hugo-netlify-github/"><strong>this protocol</strong></a>, this blog added some tips based on them.</p>
+</div>
+<div id="the-application-of-git-repository-in-rstudio" class="section level3">
+<h3>The application of git repository in RStudio</h3>
+<p>First we need to create a local git repository folder for the website. In RStudio, we could did it by menu <strong>File</strong> &gt;&gt; <strong>New Project</strong> &gt;&gt; <strong>Git Repository</strong></p>
+<pre class="r"><code>workDir = &quot;~/Documents/WorkSpace/platform/murmur&quot;
+if (!dir.exists(workDir)){
+  dir.create(workDir)
+}
+setwd(workDir)</code></pre>
+</div>
+<div id="steps-for-setting-the-theme-of-blogdown" class="section level3">
+<h3>Steps for setting the theme of blogdown</h3>
+<p>Blogdown could be download in github, the simplest way to chose a blog theme is by installing hugo. Hugo has lots of online theme templates. The theme I applied here is soho.</p>
+<pre class="r"><code>packageList = installed.packages()
+if (! &quot;blogdown&quot; %in% packageList){
+  devtools::install_github(&quot;RStudio/blogdown&quot;)
+  blogdown::install_hugo()
+}
+blogdown::install_theme(&quot;alexandrevicenzi/soho&quot;)</code></pre>
+</div>
+<div id="netlify-setup-tips" class="section level3">
+<h3>Netlify setup tips</h3>
+<p>You could use your email or github account to register the netlify. After registered in netlify, you could create a netlify app and link it to your github project(here is the R project updated to the github), don’t forget to modify the url in the config.toml, otherwise the mapping rejection relationship could not be set up correctly!</p>
+</div>
+<div id="custome-theme-tips" class="section level3">
+<h3>Custome theme tips</h3>
+<p>Since the hugo themes are dynamically maintained by the theme makers online. Each time they update the themes, your blog theme system would be updated simultaneously. So if you want to apply custom themes like customed css files, you should add modified files in the : <strong>/static/css/</strong>, rather than <strong>/public/css/</strong>.<strong>(IMP,IMP,IMP!!!)</strong> Otherwise, even though you changed the css file and the synchronic website view, each time you rerun the website, the theme will turn to the default view.</p>
+</div>
+<div id="about-soho-theme" class="section level3">
+<h3>About Soho theme</h3>
+Soho theme is developed by alexandrevicenzi based on Hugo hyde theme. In practise, you need to add **
+<!DOCTYPE html>
+<p>** at the header line of all files under <strong>content/post/themes/soho/layouts</strong> folder.</p>
+</div>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; Jiannine Zhang 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+</body>
+</html>

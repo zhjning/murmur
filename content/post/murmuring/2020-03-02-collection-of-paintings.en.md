@@ -14,13 +14,20 @@ Description: 'Painting collection'
 Tags:
   - Development
   - golang
-menu: main
 ---
 
 ### Watercolor
 
-{{< instagram_simple BGvuInzyFAe hidecaption >}}
+---
 
-<bar>
+{{< instagram_simple BGvuInzyFAe >}}
+
+<br>
+
+{{< instagram_simple BGvuInzyFAe >}}
+
+<br>
+
+---
 
 

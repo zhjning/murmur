@@ -4,46 +4,51 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-02-27T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-02-27T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/development/</loc>
-    <lastmod>2020-02-27T00:00:00+00:00</lastmod>
+    <loc>/post/murmuring/collection-of-paintings/</loc>
+    <lastmod>2020-03-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/development/</loc>
-    <lastmod>2020-02-27T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/development/</loc>
+    <lastmod>2020-03-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/golang/</loc>
-    <lastmod>2020-02-27T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/golang/</loc>
-    <lastmod>2020-02-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/r-blog/</loc>
-    <lastmod>2020-02-27T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2020-02-27T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/</loc>
+    <lastmod>2020-03-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/studynotes/r-blog/</loc>
     <lastmod>2020-02-27T00:00:00+00:00</lastmod>
   </url>
   
