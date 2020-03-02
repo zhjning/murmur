@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on Fluffy Flurry</title>
+    <link>/categories/development/</link>
+    <description>Recent content in Development on Fluffy Flurry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 27 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pesernal website deployment with R blogdown</title>
+      <link>/post/r-blog/</link>
+      <pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/r-blog/</guid>
+      <description>Why using R for blog deployment. The R blog is built up by RStudio blogdown package, github and netlify online application service.</description>
+    </item>
+    
+  </channel>
+</rss>
