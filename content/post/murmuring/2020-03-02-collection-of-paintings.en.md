@@ -25,7 +25,9 @@ Embedding cheatsheets.
 
 {{< instagram_simple B9NrtVonGez >}}
 
-  {{< instagram_simple id >}}
+```
+{{< instagram_simple id >}}
+```
 
 <br>
 
@@ -33,8 +35,10 @@ Embedding cheatsheets.
 
 {{< twitter_simple 1233670259715870720 >}}
 
-  {{< twitter_simple 1233670259715870720 >}}
-  
+```
+{{< twitter_simple 1233670259715870720 >}}
+```
+
 <br>
 
 ---
@@ -44,6 +48,10 @@ Embedding cheatsheets.
 - Bilibili
 
 <iframe src="//player.bilibili.com/player.html?aid=86133117&cid=147223508&page=1" width="640" height="385" allowfullscreen> </iframe>
+
+```
+<iframe src="//player.bilibili.com/player.html?aid=86133117&cid=147223508&page=1" width="640" height="385" allowfullscreen> </iframe>
+```
 
 <br>
 
