@@ -1,0 +1,39 @@
+---
+title: Updating Manjaro by Amateur
+author: Jiannie
+date: '2020-03-27'
+slug: updating-manjaro
+categories:
+  - Linux
+tags:
+  - system
+Categories:
+  - Development
+  - GoLang
+Description: ''
+Tags:
+  - Development
+  - golang
+---
+
+
+
+<div id="序" class="section level3">
+<h3>序</h3>
+<p>Manjaro 6个月不更新，一更新就死机…稀里糊涂的修好了，记录下维修步骤，以及坑。。。</p>
+</div>
+<div id="步骤" class="section level3">
+<h3>步骤</h3>
+<ul>
+<li><p>先测试下使用advance模式能否回滚修好，通过<strong>ctrl+E</strong>进入grub模式, 错误显示 /boot下面找不到 vmlinuz了….</p></li>
+<li><p>构建启动盘：到manjaro官网下载official版本构建usb启动盘，启动盘使用mac osx下的DAEMON Tools烧制 (这个软件花了我好多钱…当时急着修Ubuntu就买了<span class="emojify">😂</span>…后来发现有开源替代软件可用)</p></li>
+<li><p>pacman安装包更新：烧制完成后，BIOS修改为U盘启动，进入命令行，先尝试到/dev/找到nvme盘，把p2挂载到/mnt/boot/下面，（efi挂载到/mnt/boot/efi上）随后切换root <code>sudo manjaro-chroot -a</code> 再进行pacman更新 <code>sudo pacman -Syyu</code> 或者先试试 <code>sudo pacman -S pacman</code> 和 <code>sudo pacman -S linux</code> 以及 <code>sudo pacman -S grub</code>看能不能启动后进入登入界面。（后来才发现启动盘里面进入setup有个修复选项，不过发现后尝试了下貌似也没啥用，感觉主要问题是之前更新的时候linux下载断掉了，另外manjaro的archlinuxcn源访问不了，直接到/etc/pacman.conf把它给拿掉） 这样瞎搞完成以后…发现登录界面出现了，但是一旦登入进去就迅速闪退回到登录界面<span class="emojify">😳😳😳</span>。</p></li>
+<li><p>其中几条之前都不知道的命令： <code>mkinitcpio -P</code>/etc/mkinitcpio.conf defines several variables which describe the contents of the image to be generated. <code>manjaro-chroot -a</code>更换root权限 <code>mhwd-kernel  -li</code>查看内核版本 <code>lsblk</code>查看分区</p></li>
+<li><p>tty2终端登入：本来折腾一上午以为已经大功告成，现在一脸懵。。。接着查资料，不是ubuntu报错的.Xauthory权限问题，/tmp也好好的很正常。后来发现tty2可以登入，使用ctrl+alt+f2进入terminal（热键与网上ctrl+alt+f1不一样,f2-f7都可以，后面看资料说f3进比较好，因为是no GUI的），alt+f1退回登入界面。这样至少能访问文件了。。。赶紧先远程登入连个sshfs把数据图出一下,不然笔记本内存压根带不动单细胞的数据。。。终端进入R一个一个字敲完命令出了图以后，接着修系统。。。</p></li>
+<li><p>更新deepin-manjaro包：既然终端可以登录，R也能正常使用，网络也正常访问，说明内核应该没问题了。。。登录循环问题就应该是deepin的关系了。。。当初安装的时候被deepin的颜值吸引，没选择gnome和xfce theme，事实证明…它不太稳定…特别是文件系统.好看是好看，但抽抽起来也是很要命。更新了下deepin包，好了。。。终于能登入系统了。</p></li>
+<li><p>关于系统更新修复后Postgresql瘫掉的问题：arch linux系统中安装postgresql一定要记得修改/etc/pacman.conf，将postgresql和postgresql-libs加入IgnPkg！！！不然就整个消失掉啦！！</p></li>
+<li><p>系统更新修复后electron-wechat启动失败问题: electron升级有问题，报错，官方好像还没解决，先用网页版微信，等等后续更新…</p></li>
+<li><p>感想：对系统了解不足导致修的时候提心吊胆。。。总之，要勤查资料。。。还要胆子大够耐心。。。相信系统。。。中间一度想重新装机，然而对于我这种半年不更新，3个月不关机的懒人而言，要重新配置系统环境的代价实在是太大了，特别是python2，python3的包，还有R的包，解决版本冲突和安装小工具，配置也挺花时间的，只能硬着头皮修了。总之，要常备份，常更新系统。以及，这次挂掉真的，激发了要配置一台备用工作站的欲望了,高配完了用docker不知道能不能改掉我的坏习惯。</p></li>
+<li><p>折腾过程中的一些参考资料：<br> <a href="https://www.zhihu.com/question/29261987">arch linux滚挂建议</a><br> <a href="https://forum.manjaro.org/t/cant-login-black-screen-chroot-guide/21166">black screen &amp; chroot guide for manjaro</a><br> <a href="https://www.zhihu.com/question/20367221">vmlinuz not found after update</a><br> <a href="https://forum.manjaro.org/t/file-boot-vmlinuz-not-found-after-update-i-did-update-grub-black-screen/121445">vmlinuz not found after update1</a><br> <a href="https://bbs.archlinux.org/viewtopic.php?id=250486">vmlinuz not found after update2</a><br> <a href="https://bbs.archlinux.org/viewtopic.php?id=245790">vmlinuz not found after update3</a><br> <a href="https://forum.manjaro.org/t/restore-grub-grub-probe-error-cannot-find-a-grub-drive-for-dev-sda1-check-your-device-map/96354/3">manjaro grub-probe error</a><br> <a href="https://www.ibm.com/developerworks/cn/linux/l-cn-chroot/index.html">what is chroot</a><br> 没错，我就是在这次挂之前都不知道chroot是啥的人…之前一直用<code>su - xx</code>完全不知道有<strong>manjaro-chroot</strong>这种东西</p></li>
+</ul>
+</div>

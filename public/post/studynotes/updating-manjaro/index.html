@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  <title>Updating Manjaro by Amateur &middot; Fluffy Flurry</title>
+
+  <meta name="description" content="" />
+
+  
+  <meta property="og:locale" content="en"/>
+
+  
+  <meta property="og:image" content="/images/profile.png">
+
+  
+  <meta property="og:site_name" content="Fluffy Flurry"/>
+  <meta property="og:title" content="Updating Manjaro by Amateur"/>
+  <meta property="og:description" content="序 Manjaro 6个月不更新，一更新就死机…稀里糊涂的修好了，记录下维修步骤，以及坑。。。
+ 步骤  先测试下使用advance模式能否回滚修好，通过ctrl&#43;E进入grub模式, 错误显示 /boot下面找不到 vmlinuz了…."/>
+  <meta property="og:url" content="/post/studynotes/updating-manjaro/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2020-03-27T00:00:00Z"/>
+  <meta property="article:modified_time" content="2020-03-27T00:00:00Z"/>
+  <meta property="article:author" content="">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "Fluffy Flurry",
+    "url" : "/",
+    "image": "/images/profile.png",
+    "description": "Random walk \x26 \n Random talk"
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "Updating Manjaro by Amateur",
+    "headline": "Updating Manjaro by Amateur",
+    "datePublished": "2020-03-27T00:00:00Z",
+    "dateModified": "2020-03-27T00:00:00Z",
+    "author": {
+      "@type": "Person",
+      "name": "",
+      "url": "/"
+    },
+    "image": "/images/profile.png",
+    "url": "/post/studynotes/updating-manjaro/",
+    "description": "序 Manjaro 6个月不更新，一更新就死机…稀里糊涂的修好了，记录下维修步骤，以及坑。。。\n 步骤  先测试下使用advance模式能否回滚修好，通过ctrl\x2bE进入grub模式, 错误显示 \/boot下面找不到 vmlinuz了…."
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Fluffy Flurry</h1>
+
+      
+      <p class="lead">Random walk &amp; 
+ Random talk</p>
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/posts/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="#" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="#" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+      <a href="#" rel="me" title="Twitter">
+        <i class="fab fa-twitter" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Updating Manjaro by Amateur</h1>
+
+  <div class="post-date">
+    <time datetime="2020-03-27T00:00:00Z">Mar 27, 2020</time> · 1 min read
+  </div>
+
+  
+
+
+<div id="序" class="section level3">
+<h3>序</h3>
+<p>Manjaro 6个月不更新，一更新就死机…稀里糊涂的修好了，记录下维修步骤，以及坑。。。</p>
+</div>
+<div id="步骤" class="section level3">
+<h3>步骤</h3>
+<ul>
+<li><p>先测试下使用advance模式能否回滚修好，通过<strong>ctrl+E</strong>进入grub模式, 错误显示 /boot下面找不到 vmlinuz了….</p></li>
+<li><p>构建启动盘：到manjaro官网下载official版本构建usb启动盘，启动盘使用mac osx下的DAEMON Tools烧制 (这个软件花了我好多钱…当时急着修Ubuntu就买了<span class="emojify">😂</span>…后来发现有开源替代软件可用)</p></li>
+<li><p>pacman安装包更新：烧制完成后，BIOS修改为U盘启动，进入命令行，先尝试到/dev/找到nvme盘，把p2挂载到/mnt/boot/下面，（efi挂载到/mnt/boot/efi上）随后切换root <code>sudo manjaro-chroot -a</code> 再进行pacman更新 <code>sudo pacman -Syyu</code> 或者先试试 <code>sudo pacman -S pacman</code> 和 <code>sudo pacman -S linux</code> 以及 <code>sudo pacman -S grub</code>看能不能启动后进入登入界面。（后来才发现启动盘里面进入setup有个修复选项，不过发现后尝试了下貌似也没啥用，感觉主要问题是之前更新的时候linux下载断掉了，另外manjaro的archlinuxcn源访问不了，直接到/etc/pacman.conf把它给拿掉） 这样瞎搞完成以后…发现登录界面出现了，但是一旦登入进去就迅速闪退回到登录界面<span class="emojify">😳😳😳</span>。</p></li>
+<li><p>其中几条之前都不知道的命令： <code>mkinitcpio -P</code>/etc/mkinitcpio.conf defines several variables which describe the contents of the image to be generated. <code>manjaro-chroot -a</code>更换root权限 <code>mhwd-kernel  -li</code>查看内核版本 <code>lsblk</code>查看分区</p></li>
+<li><p>tty2终端登入：本来折腾一上午以为已经大功告成，现在一脸懵。。。接着查资料，不是ubuntu报错的.Xauthory权限问题，/tmp也好好的很正常。后来发现tty2可以登入，使用ctrl+alt+f2进入terminal（热键与网上ctrl+alt+f1不一样,f2-f7都可以，后面看资料说f3进比较好，因为是no GUI的），alt+f1退回登入界面。这样至少能访问文件了。。。赶紧先远程登入连个sshfs把数据图出一下,不然笔记本内存压根带不动单细胞的数据。。。终端进入R一个一个字敲完命令出了图以后，接着修系统。。。</p></li>
+<li><p>更新deepin-manjaro包：既然终端可以登录，R也能正常使用，网络也正常访问，说明内核应该没问题了。。。登录循环问题就应该是deepin的关系了。。。当初安装的时候被deepin的颜值吸引，没选择gnome和xfce theme，事实证明…它不太稳定…特别是文件系统.好看是好看，但抽抽起来也是很要命。更新了下deepin包，好了。。。终于能登入系统了。</p></li>
+<li><p>关于系统更新修复后Postgresql瘫掉的问题：arch linux系统中安装postgresql一定要记得修改/etc/pacman.conf，将postgresql和postgresql-libs加入IgnPkg！！！不然就整个消失掉啦！！</p></li>
+<li><p>系统更新修复后electron-wechat启动失败问题: electron升级有问题，报错，官方好像还没解决，先用网页版微信，等等后续更新…</p></li>
+<li><p>感想：对系统了解不足导致修的时候提心吊胆。。。总之，要勤查资料。。。还要胆子大够耐心。。。相信系统。。。中间一度想重新装机，然而对于我这种半年不更新，3个月不关机的懒人而言，要重新配置系统环境的代价实在是太大了，特别是python2，python3的包，还有R的包，解决版本冲突和安装小工具，配置也挺花时间的，只能硬着头皮修了。总之，要常备份，常更新系统。以及，这次挂掉真的，激发了要配置一台备用工作站的欲望了,高配完了用docker不知道能不能改掉我的坏习惯。</p></li>
+<li><p>折腾过程中的一些参考资料：<br> <a href="https://www.zhihu.com/question/29261987">arch linux滚挂建议</a><br> <a href="https://forum.manjaro.org/t/cant-login-black-screen-chroot-guide/21166">black screen &amp; chroot guide for manjaro</a><br> <a href="https://www.zhihu.com/question/20367221">vmlinuz not found after update</a><br> <a href="https://forum.manjaro.org/t/file-boot-vmlinuz-not-found-after-update-i-did-update-grub-black-screen/121445">vmlinuz not found after update1</a><br> <a href="https://bbs.archlinux.org/viewtopic.php?id=250486">vmlinuz not found after update2</a><br> <a href="https://bbs.archlinux.org/viewtopic.php?id=245790">vmlinuz not found after update3</a><br> <a href="https://forum.manjaro.org/t/restore-grub-grub-probe-error-cannot-find-a-grub-drive-for-dev-sda1-check-your-device-map/96354/3">manjaro grub-probe error</a><br> <a href="https://www.ibm.com/developerworks/cn/linux/l-cn-chroot/index.html">what is chroot</a><br> 没错，我就是在这次挂之前都不知道chroot是啥的人…之前一直用<code>su - xx</code>完全不知道有<strong>manjaro-chroot</strong>这种东西</p></li>
+</ul>
+</div>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; Jiannine Zhang 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+</body>
+</html>
