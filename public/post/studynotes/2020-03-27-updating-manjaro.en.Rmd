@@ -40,9 +40,9 @@ Manjaro 6个月不更新，一更新就死机...稀里糊涂的修好了，记�
 
 * 更新deepin-manjaro包：既然终端可以登录，R也能正常使用，网络也正常访问，说明内核应该没问题了。。。登录循环问题就应该是deepin的关系了。。。当初安装的时候被deepin的颜值吸引，没选择gnome和xfce theme，事实证明...它不太稳定...特别是文件系统.好看是好看，但抽抽起来也是很要命。更新了下deepin包，好了。。。终于能登入系统了。
 
-* 关于系统更新修复后Postgresql瘫掉的问题：arch linux系统中安装postgresql一定要记得修改/etc/pacman.conf，将postgresql和postgresql-libs加入IgnPkg！！！不然就整个消失掉啦！！
+* **关于系统更新修复后Postgresql瘫掉的问题**：arch linux系统中安装postgresql一定要记得修改/etc/pacman.conf，将postgresql和postgresql-libs加入IgnPkg！！！不然就整个消失掉啦！！postgresql更新要遵照这个[教程](https://wiki.archlinux.org/index.php/PostgreSQL#Upgrading_PostgreSQL)
 
-* 系统更新修复后electron-wechat启动失败问题: electron升级有问题，报错，官方好像还没解决，先用网页版微信，等等后续更新...
+* ,如果要更新一定要记得用postgres用户进入，备份/var/lib/postgres/data下面的文件！系统更新修复后electron-wechat启动失败问题: electron升级有问题，报错，官方好像还没解决，先用网页版微信，等等后续更新...
 
 * 感想：对系统了解不足导致修的时候提心吊胆。。。总之，要勤查资料。。。还要胆子大够耐心。。。相信系统。。。中间一度想重新装机，然而对于我这种半年不更新，3个月不关机的懒人而言，要重新配置系统环境的代价实在是太大了，特别是python2，python3的包，还有R的包，解决版本冲突和安装小工具，配置也挺花时间的，只能硬着头皮修了。总之，要常备份，常更新系统。以及，这次挂掉真的，激发了要配置一台备用工作站的欲望了,高配完了用docker不知道能不能改掉我的坏习惯。
 

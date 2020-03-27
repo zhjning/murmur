@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Hugo 0.58.3" />
 
-  <title>Posts &middot; Fluffy Flurry</title>
+  <title>Query public omics data through R &middot; Fluffy Flurry</title>
 
-  <meta name="description" content="" />
+  <meta name="description" content="Query public data through R" />
 
   
   <meta property="og:locale" content="en"/>
@@ -17,12 +17,12 @@
 
   
   <meta property="og:site_name" content="Fluffy Flurry"/>
-  <meta property="og:title" content="Posts"/>
-  <meta property="og:description" content=""/>
-  <meta property="og:url" content="/post/"/>
+  <meta property="og:title" content="Query public omics data through R"/>
+  <meta property="og:description" content="Query public data through R"/>
+  <meta property="og:url" content="/post/studynotes/query-public-omics-data-through-r/"/>
   <meta property="og:type" content="article"/>
-  <meta property="article:published_time" content="2020-03-27T00:00:00Z"/>
-  <meta property="article:modified_time" content="2020-03-27T00:00:00Z"/>
+  <meta property="article:published_time" content="2020-03-04T00:00:00Z"/>
+  <meta property="article:modified_time" content="2020-03-04T00:00:00Z"/>
   <meta property="article:author" content="">
   
   
@@ -44,18 +44,18 @@
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "name": "Posts",
-    "headline": "Posts",
-    "datePublished": "2020-03-27T00:00:00Z",
-    "dateModified": "2020-03-27T00:00:00Z",
+    "name": "Query public omics data through R",
+    "headline": "Query public omics data through R",
+    "datePublished": "2020-03-04T00:00:00Z",
+    "dateModified": "2020-03-04T00:00:00Z",
     "author": {
       "@type": "Person",
       "name": "",
       "url": "/"
     },
     "image": "/images/profile.png",
-    "url": "/post/",
-    "description": ""
+    "url": "/post/studynotes/query-public-omics-data-through-r/",
+    "description": "Query public data through R"
   }
   </script>
   
@@ -94,7 +94,6 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="Fluffy Flurry" />
   </head>
 <body>
   <aside class="sidebar">
@@ -149,30 +148,76 @@
 
 
   <main class="content container">
-  <ul class="posts">
-  <h1>Posts</h1>
-  <li>
-    <span>
-        <a href="/post/studynotes/updating-manjaro/">Updating Manjaro by Amateur</a>
-        <time class="pull-right post-list" datetime="2020-03-27T00:00:00Z">Mar 27, 2020</time>
-    </span>
-  </li><li>
-    <span>
-        <a href="/post/studynotes/query-public-omics-data-through-r/">Query public omics data through R</a>
-        <time class="pull-right post-list" datetime="2020-03-04T00:00:00Z">Mar 4, 2020</time>
-    </span>
-  </li><li>
-    <span>
-        <a href="/post/murmuring/collection-of-paintings/">Collection of paintings</a>
-        <time class="pull-right post-list" datetime="2020-03-02T00:00:00Z">Mar 2, 2020</time>
-    </span>
-  </li><li>
-    <span>
-        <a href="/post/studynotes/r-blog/">Pesernal website deployment with R blogdown</a>
-        <time class="pull-right post-list" datetime="2020-02-27T00:00:00Z">Feb 27, 2020</time>
-    </span>
-  </li>
+  <div class="post">
+  <h1>Query public omics data through R</h1>
+
+  <div class="post-date">
+    <time datetime="2020-03-04T00:00:00Z">Mar 4, 2020</time> · 1 min read
+  </div>
+
+  
+
+
+<div id="packages-will-be-introduced-here" class="section level3">
+<h3>Packages will be introduced here</h3>
+<ul>
+<li>rentrez (for NCBI datasets)</li>
+<li>GEOquery (for NCBI datasets)</li>
+<li>ArrayExpress (for EMBI datasets)</li>
 </ul>
+</div>
+<div id="query-geo-by-sra" class="section level3">
+<h3>Query GEO by SRA</h3>
+<pre class="r"><code>find_gseid &lt;- function(run, verbose = FALSE, sleep = 1/3) {
+  ## Check inputs
+  stopifnot(is.character(run) &amp; length(run) == 1)
+  if(run == &#39;&#39;) return(NA)
+  
+  if(verbose) message(paste(Sys.time(), &#39;finding GEO accession id for SRA run&#39;, run))
+  Sys.sleep(sleep)
+  
+  ## Find uid first
+  uid &lt;- rentrez::entrez_search(&#39;sra&#39;, term = run)
+  if(length(uid$ids) == 0) return(NA)
+  
+  ## Find linking ids
+  ## Find linking database by rentrez::entrez_dbs()
+  linking &lt;- rentrez::entrez_link(&#39;sra&#39;, id = uid$ids, db = &#39;gds&#39;)
+  if(length(linking$links$sra_gds) == 0) return(NA)
+  
+  ## Find GSM
+  foundGSM &lt;- FALSE
+  for(i in linking$links$sra_gds) {
+    gsm &lt;- rentrez::entrez_summary(db = &#39;gds&#39;, i)$accession
+    if(grepl(&#39;GSM&#39;, gsm)) {
+      foundGSM &lt;- TRUE
+      break
+    }
+  }
+  
+  ## Finish
+  if(foundGSM) {
+    return(gsm)
+  } else {
+    return(NA)
+  }
+}</code></pre>
+</div>
+<div id="qeury-sra-by-geo" class="section level3">
+<h3>Qeury SRA by GEO</h3>
+<p><a href="https://bioconductor.org/packages/release/bioc/vignettes/GEOquery/inst/doc/GEOquery.html">protocol</a> head(Meta(gsm))</p>
+</div>
+<div id="query-arrayexpress" class="section level3">
+<h3>Query ArrayExpress</h3>
+</div>
+<div id="a-good-resources" class="section level3">
+<h3>A good resources:</h3>
+<p><a href="https://learn.gencore.bio.nyu.edu">gencore</a></p>
+</div>
+
+</div>
+
+
   </main>
 
   <footer>
