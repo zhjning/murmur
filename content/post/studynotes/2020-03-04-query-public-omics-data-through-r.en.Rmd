@@ -22,7 +22,7 @@ Tags:
 - GEOquery (for NCBI datasets)
 - ArrayExpress (for EMBI datasets)
 
-```{r, include=FALSE}
+```
 require(rentrez)
 require(GEOquery)
 # require(ArrayExpress)
@@ -31,7 +31,7 @@ require(GEOquery)
 
 ### Query GEO by SRA
 
-```{r, eval=FALSE}
+```
 find_gseid <- function(run, verbose = FALSE, sleep = 1/3) {
   ## Check inputs
   stopifnot(is.character(run) & length(run) == 1)
@@ -73,7 +73,7 @@ find_gseid <- function(run, verbose = FALSE, sleep = 1/3) {
 
 [protocol](https://bioconductor.org/packages/release/bioc/vignettes/GEOquery/inst/doc/GEOquery.html)
 head(Meta(gsm))
-```{r, eval=FALSE}
+```
 
 ```
 
@@ -81,11 +81,9 @@ head(Meta(gsm))
 
 ### Query ArrayExpress
 
-```{r, eval=FALSE}
+```
 
 ```
 
-### A good resources:
 
-[gencore](https://learn.gencore.bio.nyu.edu)
 
