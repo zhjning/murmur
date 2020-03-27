@@ -1,0 +1,91 @@
+---
+title: Query public omics data through R
+author: Jiannie Zhang
+date: '2020-03-04'
+slug: query-public-omics-data-through-r
+categories:
+  - R
+tags:
+  - bioinformatics
+Categories:
+  - Development
+  - GoLang
+Description: 'Query public data through R'
+Tags:
+  - Development
+  - golang
+---
+
+### Packages will be introduced here
+
+- rentrez (for NCBI datasets)
+- GEOquery (for NCBI datasets)
+- ArrayExpress (for EMBI datasets)
+
+```{r, include=FALSE}
+require(rentrez)
+require(GEOquery)
+# require(ArrayExpress)
+```
+
+
+### Query GEO by SRA
+
+```{r, eval=FALSE}
+find_gseid <- function(run, verbose = FALSE, sleep = 1/3) {
+  ## Check inputs
+  stopifnot(is.character(run) & length(run) == 1)
+  if(run == '') return(NA)
+  
+  if(verbose) message(paste(Sys.time(), 'finding GEO accession id for SRA run', run))
+  Sys.sleep(sleep)
+  
+  ## Find uid first
+  uid <- rentrez::entrez_search('sra', term = run)
+  if(length(uid$ids) == 0) return(NA)
+  
+  ## Find linking ids
+  ## Find linking database by rentrez::entrez_dbs()
+  linking <- rentrez::entrez_link('sra', id = uid$ids, db = 'gds')
+  if(length(linking$links$sra_gds) == 0) return(NA)
+  
+  ## Find GSM
+  foundGSM <- FALSE
+  for(i in linking$links$sra_gds) {
+    gsm <- rentrez::entrez_summary(db = 'gds', i)$accession
+    if(grepl('GSM', gsm)) {
+      foundGSM <- TRUE
+      break
+    }
+  }
+  
+  ## Finish
+  if(foundGSM) {
+    return(gsm)
+  } else {
+    return(NA)
+  }
+}
+```
+
+
+### Qeury SRA by GEO
+
+[protocol](https://bioconductor.org/packages/release/bioc/vignettes/GEOquery/inst/doc/GEOquery.html)
+head(Meta(gsm))
+```{r, eval=FALSE}
+
+```
+
+
+
+### Query ArrayExpress
+
+```{r, eval=FALSE}
+
+```
+
+### A good resources:
+
+[gencore](https://learn.gencore.bio.nyu.edu)
+
