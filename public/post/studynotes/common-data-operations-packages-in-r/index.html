@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Hugo 0.58.3" />
 
-  <title>Posts &middot; Fluffy Flurry</title>
+  <title>Common data operations and packages in R (有关R的常见数据操作) [更新中] &middot; Fluffy Flurry</title>
 
   <meta name="description" content="" />
 
@@ -17,9 +17,9 @@
 
   
   <meta property="og:site_name" content="Fluffy Flurry"/>
-  <meta property="og:title" content="Posts"/>
-  <meta property="og:description" content=""/>
-  <meta property="og:url" content="/post/"/>
+  <meta property="og:title" content="Common data operations and packages in R (有关R的常见数据操作) [更新中]"/>
+  <meta property="og:description" content="常见数据处理包 Notes 1. Data import:  readr for reading text files tidyr for reading tibbles haven for SPSS, Stata, SAS readxl for ."/>
+  <meta property="og:url" content="/post/studynotes/common-data-operations-packages-in-r/"/>
   <meta property="og:type" content="article"/>
   <meta property="article:published_time" content="2020-04-11T00:00:00Z"/>
   <meta property="article:modified_time" content="2020-04-11T00:00:00Z"/>
@@ -44,8 +44,8 @@
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "name": "Posts",
-    "headline": "Posts",
+    "name": "Common data operations and packages in R (有关R的常见数据操作) [更新中]",
+    "headline": "Common data operations and packages in R (有关R的常见数据操作) [更新中]",
     "datePublished": "2020-04-11T00:00:00Z",
     "dateModified": "2020-04-11T00:00:00Z",
     "author": {
@@ -54,8 +54,8 @@
       "url": "/"
     },
     "image": "/images/profile.png",
-    "url": "/post/",
-    "description": ""
+    "url": "/post/studynotes/common-data-operations-packages-in-r/",
+    "description": "常见数据处理包 Notes 1. Data import:  readr for reading text files tidyr for reading tibbles haven for SPSS, Stata, SAS readxl for ."
   }
   </script>
   
@@ -94,7 +94,6 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="Fluffy Flurry" />
   </head>
 <body>
   <aside class="sidebar">
@@ -149,40 +148,92 @@
 
 
   <main class="content container">
-  <ul class="posts">
-  <h1>Posts</h1>
-  <li>
-    <span>
-        <a href="/post/studynotes/common-data-operations-packages-in-r/">Common data operations and packages in R (有关R的常见数据操作) [更新中]</a>
-        <time class="pull-right post-list" datetime="2020-04-11T00:00:00Z">Apr 11, 2020</time>
-    </span>
-  </li><li>
-    <span>
-        <a href="/post/studynotes/summary-of-bioinformatics-resources/">Summary of Bioinformatics Resources</a>
-        <time class="pull-right post-list" datetime="2020-03-27T00:00:00Z">Mar 27, 2020</time>
-    </span>
-  </li><li>
-    <span>
-        <a href="/post/studynotes/updating-manjaro/">Updating Manjaro by Amateur</a>
-        <time class="pull-right post-list" datetime="2020-03-27T00:00:00Z">Mar 27, 2020</time>
-    </span>
-  </li><li>
-    <span>
-        <a href="/post/studynotes/query-public-omics-data-through-r/">Query public omics data through R</a>
-        <time class="pull-right post-list" datetime="2020-03-04T00:00:00Z">Mar 4, 2020</time>
-    </span>
-  </li><li>
-    <span>
-        <a href="/post/murmuring/collection-of-paintings/">Collection of paintings</a>
-        <time class="pull-right post-list" datetime="2020-03-02T00:00:00Z">Mar 2, 2020</time>
-    </span>
-  </li><li>
-    <span>
-        <a href="/post/studynotes/r-blog/">Pesernal website deployment with R blogdown</a>
-        <time class="pull-right post-list" datetime="2020-02-27T00:00:00Z">Feb 27, 2020</time>
-    </span>
-  </li>
+  <div class="post">
+  <h1>Common data operations and packages in R (有关R的常见数据操作) [更新中]</h1>
+
+  <div class="post-date">
+    <time datetime="2020-04-11T00:00:00Z">Apr 11, 2020</time> · 1 min read
+  </div>
+
+  
+
+
+<div id="常见数据处理包-notes" class="section level3">
+<h3>常见数据处理包 Notes</h3>
+<div id="data-import" class="section level4">
+<h4><strong>1. Data import:</strong></h4>
+<ul>
+<li>readr for reading text files</li>
+<li>tidyr for reading tibbles</li>
+<li>haven for SPSS, Stata, SAS</li>
+<li>readxl for .xls and .xlsx</li>
+<li>DBI for databases</li>
+<li>jsonliet for json</li>
+<li>xml2 for XML</li>
+<li>httr for web apis</li>
+<li>rvest for html</li>
 </ul>
+<p><strong>Read tabular data</strong></p>
+<p>read_csv, read_csv2, read_delim, read_fwf(,col_positions=c(1,2,4), read_tsv()/read_table)</p>
+<pre><code># commond lines
+&gt;&gt; tabular data
+read_*(file, col_names=TRUE, col_types=NULL, 
+       locale=default_locale(), na=c(&quot;&quot;,&quot;NA&quot;),
+       quoted_na=TRUE, comment=&quot;&quot;, trim_ws=TRUE, 
+       skip=0, n_max=Inf, guess_max=min(1000,n_max),
+       progress=interactive())
+&gt;&gt; non-tabular data
+read_file(file, locale)
+read_file_raw(file)
+read_lines(file, skip, n_max=-1L, na, locale, progress)
+read_lines_raw(file, skip, n_max=-1L, progress)
+read_log(file,col_names,col_types,skip,n_max,progress) #Apache style log
+
+# parameters
+&gt;&gt; add/remove header
+col_names = c(&quot;x&quot;,&quot;y&quot;,&quot;z&quot;)/F
+&gt;&gt; skip lines
+skip = 1
+&gt;&gt; read subsets
+n_max = 1
+&gt;&gt; missing values
+na = c(&quot;1&quot;,&quot;.&quot;)
+</code></pre>
+<p><strong>Save data</strong></p>
+<pre><code># command lines
+&gt;&gt; text with comma as delimiter
+write_csv()
+&gt;&gt; text with tab delimiter
+write_tsv()
+&gt;&gt; text with arbitrary delimiter
+write_delim()
+&gt;&gt; csv for excel
+write_excel_csv()
+&gt;&gt; string to file
+write_file()
+&gt;&gt; string vector to file
+write_lines()
+&gt;&gt; object to rds file
+write_rds()</code></pre>
+</div>
+<div id="functional-programming-purr" class="section level4">
+<h4><strong>2. Functional programming: Purr</strong></h4>
+<pre><code># command list
+
+
+</code></pre>
+</div>
+<div id="pipe-services-dplyr-tidyverse" class="section level4">
+<h4><strong>3. Pipe services: Dplyr, Tidyverse</strong></h4>
+<pre><code># command list
+
+</code></pre>
+</div>
+</div>
+
+</div>
+
+
   </main>
 
   <footer>

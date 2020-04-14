@@ -1,0 +1,107 @@
+---
+title: 'Common data operations and packages in R (有关R的常见数据操作) [更新中]'
+author: Jiannie Zhang
+date: '2020-04-11'
+slug: common-data-operations-packages-in-r
+categories:
+  - R
+tags:
+  - bioinformatics
+Categories:
+  - Development
+  - GoLang
+Description: ''
+Tags:
+  - Development
+  - golang
+---
+
+### 常见数据处理包 Notes
+
+#### **1. Data import:**
+
+* readr for reading text files
+* tidyr for reading tibbles
+* haven for SPSS, Stata, SAS
+* readxl for .xls and .xlsx
+* DBI for databases
+* jsonliet for json
+* xml2 for XML
+* httr for web apis
+* rvest for html
+
+**Read tabular data** 
+
+read_csv, read_csv2, read_delim, read_fwf(,col_positions=c(1,2,4), read_tsv()/read_table)
+
+```
+# commond lines
+>> tabular data
+read_*(file, col_names=TRUE, col_types=NULL, 
+       locale=default_locale(), na=c("","NA"),
+       quoted_na=TRUE, comment="", trim_ws=TRUE, 
+       skip=0, n_max=Inf, guess_max=min(1000,n_max),
+       progress=interactive())
+>> non-tabular data
+read_file(file, locale)
+read_file_raw(file)
+read_lines(file, skip, n_max=-1L, na, locale, progress)
+read_lines_raw(file, skip, n_max=-1L, progress)
+read_log(file,col_names,col_types,skip,n_max,progress) #Apache style log
+
+# parameters
+>> add/remove header
+col_names = c("x","y","z")/F
+>> skip lines
+skip = 1
+>> read subsets
+n_max = 1
+>> missing values
+na = c("1",".")
+
+```
+
+**Save data**
+
+```
+# command lines
+>> text with comma as delimiter
+write_csv()
+>> text with tab delimiter
+write_tsv()
+>> text with arbitrary delimiter
+write_delim()
+>> csv for excel
+write_excel_csv()
+>> string to file
+write_file()
+>> string vector to file
+write_lines()
+>> object to rds file
+write_rds()
+```
+
+#### **2. Functional programming: Purr**
+
+```
+# command list
+
+
+
+```
+
+#### **3. Pipe services: Dplyr, Tidyverse**
+
+```
+# command list
+
+
+```
+
+
+
+
+
+
+
+

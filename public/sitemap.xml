@@ -4,46 +4,51 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/studynotes/common-data-operations-packages-in-r/</loc>
+    <lastmod>2020-04-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/development/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/development/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/golang/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/golang/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/studynotes/summary-of-bioinformatics-resources/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/</loc>
+    <lastmod>2020-04-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/studynotes/summary-of-bioinformatics-resources/</loc>
     <lastmod>2020-03-27T00:00:00+00:00</lastmod>
   </url>
   
